@@ -12,4 +12,4 @@
 ```
 #### 5.export my_home   定义全局变量
        unset  my_home   删除
-#### 6.添加path   PATH=$PATH:/home/christine/Scripts
+#### 6.添加path   PATH=$PATH:/home/christine/Scripts  退出或重启失效
