@@ -11,5 +11,5 @@
 	echo $my_home
 ```
 #### 5.export my_home   定义全局变量
-       unset  my_ 删除
-
+       unset  my_home   删除
+#### 6.
