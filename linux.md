@@ -10,5 +10,5 @@
 	my_home = "hello world"
 	echo $my_home
 ```
-#### 5.
+#### 5.export my_home
 
