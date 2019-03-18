@@ -1,11 +1,5 @@
 ## linux知识
-
-
-
-基础命令shell
-
-
-
+### 基础命令shell
 1.!! 使用刚才输入的命令
 2.alias 命令别名  alias li='ls -li' 
 3.环境变量
@@ -20,6 +14,3 @@
 
 5.
 
-
-
-language
