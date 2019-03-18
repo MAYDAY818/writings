@@ -1,3 +1,25 @@
-<h2>linux知识点</h2><p><br></p><h4>基础命令shell</h4><p><br></p><attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-8478a05b-c54b-497b-acdc-fe341852f438"></attachment><ol><li>   !!  使用刚才输入的命令</li><li>   alias  命令别名      <code>  alias li='ls -li'  </code> </li></ol><h3>环境变量</h3><ol><li>  printenv HOME   显示环境变量    <code>  ls $HOME  </code></li><li>  set 局部变量,全局变量,用户自定义变量   并排序</li><li>  有空格要用引号</li></ol><pre class="ql-syntax" spellcheck="false">my_home = "hello world"
-eecho $my_home
-</pre><p>       4.</p><p>	   5.  </p><p><br></p>language
+## linux知识
+
+
+
+基础命令shell
+
+
+
+1.!! 使用刚才输入的命令
+2.alias 命令别名  alias li='ls -li' 
+3.环境变量
+	printenv HOME 显示环境变量  ls $HOME 
+	set 局部变量,全局变量,用户自定义变量 并排序
+4.有空格要用引号
+```
+	my_home = "hello world"
+	echo $my_home
+```
+4.
+
+5.
+
+
+
+language
