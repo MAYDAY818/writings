@@ -18,7 +18,7 @@
 #### 7./etc/profile   大部分linux默认bash shell启动文件
 #### 8.bash shell 提供BASH_ENV环境变量 ``` printenv BASH_ENV ```
 #### 9.大多数linux提供$HOME/.bashrc作为个人用户永久性bash shell变量
-#### 10.useradd   添加用户   userdel   删除用户
+#### 10.useradd   添加用户 -G 加入组  userdel   删除用户
 	usermod   修改账户  -l 登录名  -L 锁定 -U 解锁  -p 修改密码
 	passwd   修改密码   -e  强制用户下次登陆修改密码
 	cash  修改shell   
