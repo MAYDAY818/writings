@@ -13,6 +13,6 @@
 #### 5.export my_home   定义全局变量
        unset  my_home   删除
 #### 6.添加path   PATH=$PATH:/home/christine/Scripts  
-	
+	PATH=$PATH:.  代表当前目录从                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 退出或重启失效
 #### 7.
