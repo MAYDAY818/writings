@@ -15,4 +15,5 @@
 #### 6.添加path   PATH=$PATH:/home/christine/Scripts  
 	PATH=$PATH:.  代表当前目录从  
 退出或重启失效
-#### 7./etc/profile   大部分linux
+#### 7./etc/profile   大部分linux默认bash shell启动文件
+#### 8.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
