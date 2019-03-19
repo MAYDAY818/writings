@@ -25,4 +25,6 @@
 	chfn   修改passwd备注
 	finger  查看用户信息(centos没有)
 	chage  修改账户有效期
-#### 11. 
+#### 11.chmod
+	chown 改变属主
+	chgrp 改变属组                                                                                                                                                                                                                                                                                                                                       
