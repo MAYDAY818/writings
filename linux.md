@@ -31,4 +31,6 @@
 	chgrp 改变属组     
 #### 12.fdisk 分区
 	重新读取分区 partprob  或 hdparm 
-	
+	挂载 mount(重启失效)  可添加/etc/fstab
+
+#### 13.fsck
