@@ -29,5 +29,5 @@
  ``` shown owner.group file 同时改变数组属主 ```
 	chown 改变属主  
 	chgrp 改变属组     
-#### 12.fdisk
-	重新读取分区 partprob  hdparm
+#### 12.fdisk 分区
+	重新读取分区 partprob  或 hdparm 
