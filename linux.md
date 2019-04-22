@@ -34,3 +34,177 @@
 	挂载 mount(重启失效)  可添加/etc/fstab
 
 #### 13.fsck分区修复
+#### 14.命令替换
+```
+`data`
+$(data)
+```
+#### 15.重定向
+输入重定向 
+```
+wc < test6
+```
+输出重定向
+```
+command > outputfile
+```
+内联输入重定向(规定输入结尾)
+```
+command << marker
+>data
+>marker
+```
+#### 16.计算
+```
+expr 5*2
+
+$[1 + 5]
+
+$[$var1 * ($var2 - $var3)]
+```
+浮点运算
+```
+bc -q
+//设置小数位个数
+scale=4
+//shell使用
+var1=$(echo "scale=4;3.44 / 5" | bc)
+```
+大量计算
+```
+#!/bin/bash
+
+var1=10.46
+var2=43.67
+var3=33.2
+var4=71
+
+var5=$(bc << EOF
+scale = 4
+a1 = ($var1 * $var2)
+b1 = ($var3 * $var4)
+a1 + b1
+EOF
+)
+```
+
+#### 17.退出脚本
+```$?```上一个命令的退出状态码(0-255)
+```
+0，成功
+126，不可执行  
+127，没有找到命令  
+128，无效的退出参数  
+130，ctrl+c退出  
+1，未知错误  
+```
+
+##### 自定义exit
+
+#### 18.if-then
+```
+if command
+then
+	commands
+else
+	commands
+fi
+```
+
+```
+if command1
+then
+	commands
+elif command2
+else
+	commands
+fi
+```
+
+test测试的一系列参数和值  
+不写condition会以非0的退出状态码退出，并执行else
+```
+if test condition
+then
+	commands
+else
+	commands
+fi
+```
+
+```
+if [ condition ]
+then
+	commands
+else
+	commands
+fi
+```
+
+bash shell只能进行整数计算
+```
+-eq	相等
+-ge	大于等于
+-gt	大于
+-le	小于等于
+-lt	小于
+-ne	不等于
+```
+字符串比较
+```
+=
+！=
+//大于小于必须转义,大写字母小于小写字母
+\>
+\<
+```
+-n和-z判断变量是否有数据
+
+```
+-e filename 如果 filename存在，则为真 [ -e /var/log/syslog ]
+-d filename 如果 filename为目录，则为真 [ -d /tmp/mydir ]
+-s filename 存在并非空
+-O filename 存在并属于当前用户
+-G fielname 存在并且默认组与当前用户相同
+-f filename 如果 filename为常规文件，则为真 [ -f /usr/bin/grep ]
+-L filename 如果 filename为符号链接，则为真 [ -L /usr/bin/grep ]
+-r filename 如果 filename可读，则为真 [ -r /var/log/syslog ]
+-w filename 如果 filename可写，则为真 [ -w /var/mytmp.txt ]
+-x filename 如果 filename可执行，则为真 [ -L /usr/bin/grep ]
+filename1 -nt filename2 如果 filename1比 filename2新，则为真 [ /tmp/install/etc/services -nt /etc/services ]
+filename1 -ot filename2 如果 filename1比 filename2旧，则为真 [ /boot/bzImage -ot arch/i386/boot/bzImage ]
+```
+
+```
+[ condition1 ] && [ condition2 ]
+[ conditionl ] || [ condition2 ]
+```
+
+```
+(( 高级数学公式 ))
+++ -- ! ~ ** << >> & | && ||
+(( vla2 = val1 ** 2 ))
+```
+
+```
+[[ 模式匹配 ]]
+```
+
+```
+case variable in
+pattern1 | pattern2) commands1;;
+pattern3) commands;;
+*) default commands;;
+esac
+```
+
+```
+for var in list
+do 
+	commands
+done
+//使用\转义，或者"new york"引起来
+更改字段分隔符
+IFS=$'\n'
+```
+
