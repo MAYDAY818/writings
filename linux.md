@@ -101,7 +101,7 @@ EOF
 
 ##### 自定义exit
 
-#### 18.if-then
+#### $\color{red}{18.if-then}$
 ```
 if command
 then
@@ -140,7 +140,7 @@ else
 	commands
 fi
 ```
-
+#### $\color{red}{19.比较}$
 bash shell只能进行整数计算
 ```
 -eq	相等
@@ -189,7 +189,7 @@ filename1 -ot filename2 如果 filename1比 filename2旧，则为真 [ /boot/bzI
 ```
 [[ 模式匹配 ]]
 ```
-
+#### $\color{red}{20.case}$
 ```
 case variable in
 pattern1 | pattern2) commands1;;
@@ -197,14 +197,43 @@ pattern3) commands;;
 *) default commands;;
 esac
 ```
-
+#### $\color{red}{21.for}$
 ```
-for var in list
+for var in list	//list有空格应使用""括起来
 do 
 	commands
 done
-//使用\转义，或者"new york"引起来
-更改字段分隔符
+//使用\转义，或者"New York"引起来
+//更改字段分隔符 内部字段分隔符IFS
 IFS=$'\n'
-```
+IFS=:
+//多个IFS字符
+IFS=$'\n':"
 
+//保证IFS仅在此次脚本中被修改
+IFSOLD=$IFS
+IFS=$'\n'
+<代码>
+IFS=$IFS.OLD
+```
+```
+for(( a = 1; a < 10; a++ ))
+do
+	commands
+done
+```
+#### $\color{red}{22.while}$
+```
+while test command
+do	
+	other commands
+done
+```
+#### $\color{red}{23.until}$
+指定返回非0的状态码，只要不是0，就会执行循环中的命令
+```
+until test commands
+do
+	other commands
+done
+```
