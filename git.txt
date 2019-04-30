@@ -1,0 +1,76 @@
+git基础命令
+	**提示
+		1,先同步在写代码
+		2.莫文其妙的问题去百度
+		工作区为当前目录(写代码的地方)
+		暂存区为git所创建的一块用来临时使用的地方
+		
+	一,准备
+		1.创建用户(姓名及邮箱)
+			$ git config --global user.name "Your Name"
+			$ git config --global user.email "email@example.com"
+		2.创建仓库(在保存文件初始化.git)
+			git init
+		3.clone仓库
+			git clone 仓库地址
+	二,提交
+		1.提交到仓库(暂存区)
+			. 表示全部修改的文件 
+			git add . 
+			如果只是修改某个文件,也可以直接写文件名称
+			git add 文件相对地址
+		2.加说明(最好写,以便版本回退)(暂存区提交到当前分支)
+			git commit -m "说明"
+		3.提交到远程仓库
+			git push
+		4.可能需要输入账户密码
+	三.分支
+		1.创建分支(主分支master,开发分支dev/develop,bug分支)
+			git branch 分支名称
+		2.跳转分支
+			git checkout 分支名称
+			**git checkout -b 分支名称 (创建并跳转到分支 1,2步骤的简化)
+		3.查看分支(列表里将会列出所有本地分支,其中 " * " 开头的为当前分支)
+			git branch
+		4.合并分支(把分支合并到当前分支)
+			从当前分支跳转到要主分支(master)
+			git merge 需要合并的分支
+				/*比如修改dev分支后,要合并到master
+				 *先git checkout master 跳到主分支
+				 *再git merge dev
+				*/
+		5.删除本地分支
+			git branch -d dev(系统提示未合并到主分支,如果强行删除,可以使用-D强制删除)
+		6.删除远程分支
+			git push origin --delete 远程分支名称
+			
+git可能遇到的情况
+	一,多人共同修改同一文件并先后提交
+		1,拉取相同的版本,有人提交后,后一个人提交会冲突
+		2,先git pull拉取
+		3,参看冲突位置
+			<<<<<<< HEAD
+			Creating a new branch is quick & simple.
+			=======
+			Creating a new branch is quick AND simple.
+			>>>>>>> feature1
+		4,将<<<到>>>的内容全部修改符合规范
+		5,重新提交
+			/*
+			*比如删除<<<到>>>所在行,并修改为"Creating a new branch is quick AND simple."
+			*这样文件就只有"Creating a new branch is quick AND simple."内容
+			*提交
+			*/
+		二.版本回退(肯定会用到)
+			1,使用git log命令查看
+				commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -> master)		版本信息 一大串为commit id HEAD为当前版本上一个版本HEAD^ 前一百个就是HEAD~100
+				Author: Michael Liao <askxuefeng@gmail.com>								信息 谁提交的
+				Date:   Fri May 18 21:06:15 2018 +0800									时间
+
+					append GPL															提交是的commit -m 信息,方便找回
+			2,使用 git reset --hard HEAD^ 回退上一个版本(回退一百个就是HEAD~100)
+			3,回退到旧的版本git log 就无法查看之后的版本只能使用commit id回退
+				git reset --hard 1094a  只写前几位就可以了,git会自动寻找(写全也好)
+		三.用git diff HEAD -- 文件命令可以查看工作区和版本库里面最新版本的区别
+		四.当工作区修改完后,又感觉修改的不好,想回到修改前,可以手动修改到之前的版本,或者使用 git checkout -- 文件名 ,会回退到跟版本库里相同的内容
+			如果上传到暂存区,使用 git reset HEAD 文件名 撤销暂存区回到工作区
